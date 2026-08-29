@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Yellow Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE773"/>
+      <stop offset="100%" stop-color="#F6D352"/>
+    </linearGradient>
+
+    <!-- Helmet Outer 3D Gradient -->
+    <linearGradient id="helmetGrad" x1="20%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="60%" stop-color="#F2EFF4"/>
+      <stop offset="100%" stop-color="#DCD7E2"/>
+    </linearGradient>
+
+    <!-- Visor Rim Bezel Gradient -->
+    <linearGradient id="visorRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="50%" stop-color="#E8E4EE"/>
+      <stop offset="100%" stop-color="#C5BECE"/>
+    </linearGradient>
+
+    <!-- Visor Dark Face Gradient -->
+    <linearGradient id="visorFace" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#24232C"/>
+      <stop offset="40%" stop-color="#141318"/>
+      <stop offset="100%" stop-color="#08080A"/>
+    </linearGradient>
+
+    <!-- Golden Orbit Ring Gradient -->
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5C0"/>
+      <stop offset="35%" stop-color="#FFD45C"/>
+      <stop offset="70%" stop-color="#EAA622"/>
+      <stop offset="100%" stop-color="#D4860E"/>
+    </linearGradient>
+
+    <!-- Golden Antenna Sphere Gradient -->
+    <radialGradient id="antennaSphere" cx="35%" cy="30%" r="65%">
+      <stop offset="0%" stop-color="#FFF9D2"/>
+      <stop offset="40%" stop-color="#FFD147"/>
+      <stop offset="85%" stop-color="#E89611"/>
+      <stop offset="100%" stop-color="#C27305"/>
+    </radialGradient>
+
+    <!-- Glowing Eye Glow Gradient -->
+    <radialGradient id="eyeGlow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#FFF59D"/>
+      <stop offset="45%" stop-color="#FFC107"/>
+      <stop offset="80%" stop-color="#FF9800"/>
+      <stop offset="100%" stop-color="#FF6D00" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Soft Ambient Drop Shadow -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#A47E10" flood-opacity="0.3"/>
+    </filter>
+
+    <filter id="glowEffect" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Squircle App Icon Background -->
+  <rect width="512" height="512" rx="118" fill="url(#bgGrad)"/>
+
+  <!-- Floating Dark Motion Accents (Top Left & Bottom Right) -->
+  <g fill="#1F1E24">
+    <!-- Top-Left Streak -->
+    <rect x="152" y="100" width="44" height="16" rx="8" transform="rotate(-30 152 100)"/>
+    <!-- Top-Left Dot -->
+    <circle cx="128" cy="144" r="6"/>
+    <!-- Bottom-Right Streak -->
+    <rect x="412" y="326" width="38" height="14" rx="7" transform="rotate(45 412 326)"/>
+  </g>
+
+  <!-- Back Orbit Ring (Behind Helmet) -->
+  <path d="M 125 315 C 90 260 210 160 410 180 C 445 183 456 195 455 208 C 454 220 435 228 395 228 C 240 228 145 285 125 315 Z" 
+        fill="url(#goldRing)" opacity="0.95"/>
+
+  <!-- Antenna Stem -->
+  <path d="M 310 178 C 322 155 348 135 372 122 C 378 128 382 136 384 145 C 358 152 334 175 324 196 Z" 
+        fill="#E8E2EE"/>
+
+  <!-- Mascot White Helmet Sphere -->
+  <g filter="url(#softShadow)">
+    <circle cx="256" cy="275" r="142" fill="url(#helmetGrad)"/>
+  </g>
+
+  <!-- Visor Bezel / Rim -->
+  <ellipse cx="252" cy="278" rx="118" ry="114" fill="url(#visorRim)"/>
+
+  <!-- Visor Dark Glossy Screen -->
+  <ellipse cx="252" cy="278" rx="108" ry="104" fill="url(#visorFace)"/>
+
+  <!-- Visor Screen Subtle Top Reflection -->
+  <path d="M 160 235 C 190 195 310 195 345 235 C 315 210 190 210 160 235 Z" fill="#FFFFFF" opacity="0.12"/>
+
+  <!-- Glowing Capsule Eyes -->
+  <g filter="url(#glowEffect)">
+    <!-- Outer Eye Glow Circles -->
+    <ellipse cx="212" cy="280" rx="26" ry="42" fill="url(#eyeGlow)" opacity="0.45"/>
+    <ellipse cx="292" cy="270" rx="26" ry="42" fill="url(#eyeGlow)" opacity="0.45"/>
+
+    <!-- Left Pill Eye -->
+    <rect x="200" y="250" width="24" height="60" rx="12" fill="#FFC83B"/>
+    <rect x="204" y="254" width="16" height="52" rx="8" fill="#FFF280"/>
+
+    <!-- Right Pill Eye (Slightly Higher on 3D Sphere) -->
+    <rect x="280" y="240" width="24" height="60" rx="12" fill="#FFC83B"/>
+    <rect x="284" y="244" width="16" height="52" rx="8" fill="#FFF280"/>
+  </g>
+
+  <!-- Front Orbit Ring (Encircling in front of Visor) -->
+  <g filter="url(#softShadow)">
+    <path d="M 64 340 C 52 355 68 372 105 376 C 210 385 365 315 452 208 C 458 200 452 190 440 192 C 345 275 190 350 96 352 C 78 352 68 346 64 340 Z" 
+          fill="url(#goldRing)"/>
+  </g>
+
+  <!-- Antenna Golden Glowing Sphere Bulb (Top Right) -->
+  <g filter="url(#softShadow)">
+    <circle cx="382" cy="116" r="34" fill="url(#antennaSphere)"/>
+    <!-- Specular Highlight on Bulb -->
+    <ellipse cx="370" cy="104" rx="10" ry="7" fill="#FFFFFF" opacity="0.8" transform="rotate(-30 370 104)"/>
+  </g>
+</svg>

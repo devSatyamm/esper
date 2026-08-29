@@ -1,0 +1,18 @@
+{
+  "name": "Esper — Personal AI Operating Layer",
+  "short_name": "Esper",
+  "description": "Think it. Say it. It's done. The personal AI operating layer with complete offline on-device execution.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#F6D76A",
+  "theme_color": "#F6D76A",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Esper — Personal AI Operating Layer | Think it. Say it. It's done.</title>
+  <meta name="description" content="Esper is the personal AI operating layer. Turn natural human intent into orchestrated, multi-app autonomous execution with on-device privacy.">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F6D76A">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-yellow">
+
+  <header class="fc-navbar-strip">
+    <nav class="fc-navbar pop-card">
+      <a href="#hero" class="fc-nav-logo" aria-label="Esper Home">
+        <div class="fc-logo-badge">
+          <img src="favicon.svg" alt="Esper" width="32" height="32" style="border-radius: 8px;">
+        </div>
+        <span class="fc-logo-text squiggly">ESPER<span class="dot-accent">.</span></span>
+      </a>
+
+      <div class="fc-nav-menu">
+        <a href="#workflow" class="fc-nav-link">Workflow</a>
+        <a href="#layers" class="fc-nav-link">Apps</a>
+        <a href="#sentinel" class="fc-nav-link">Sentinel</a>
+        <a href="#security" class="fc-nav-link">Security</a>
+        <a href="#features" class="fc-nav-link">Features</a>
+      </div>
+
+      <div class="fc-nav-right">
+        
+        <button id="offlineIndicatorBtn" class="fc-offline-pill pop-card hidden" title="Esper is in On-Device Offline Mode">
+          <span class="offline-dot"></span>
+          <span class="offline-text font-display">OFFLINE MODE</span>
+        </button>
+
+        <button id="soundToggleBtn" class="fc-sound-btn" title="Toggle Sound FX" aria-label="Toggle Sound FX">
+          <svg id="soundOnIcon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+          </svg>
+          <svg id="soundOffIcon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <line x1="23" y1="9" x2="17" y2="15"/>
+            <line x1="17" y1="9" x2="23" y2="15"/>
+          </svg>
+        </button>
+
+        <button class="pop-btn pop-btn-ink fc-nav-cta open-modal-btn">GET NOW</button>
+        
+        <button id="mobileNavToggle" class="fc-mobile-toggle" aria-label="Toggle mobile menu">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" stroke-width="2.5" stroke-linecap="round">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <div id="mobileDropdown" class="fc-mobile-dropdown pop-card hidden">
+      <a href="#workflow" class="fc-mobile-nav-link">Workflow</a>
+      <a href="#layers" class="fc-mobile-nav-link">Across Your Phone</a>
+      <a href="#sentinel" class="fc-mobile-nav-link">24/7 Sentinel</a>
+      <a href="#security" class="fc-mobile-nav-link">On-Device Security</a>
+      <a href="#features" class="fc-mobile-nav-link">OS Features</a>
+    </div>
+  </header>
+
+  <main>
+    
+    <section id="hero" class="fc-section fc-hero-section">
+      
+      <div class="fc-ambient-doodle doodle-top-left">
+        <svg viewBox="0 0 70 50" fill="none" stroke="#1A1A1A" stroke-width="3" stroke-linecap="round">
+          <path d="M 8 12 C 24 10, 42 16, 62 14"/>
+          <path d="M 15 25 C 32 23, 48 28, 65 26"/>
+          <path d="M 5 38 C 22 36, 38 42, 55 40"/>
+        </svg>
+      </div>
+      <div class="fc-ambient-doodle doodle-top-right">
+        <svg viewBox="0 0 80 80" fill="none" stroke="#F2A6B8" stroke-width="4" stroke-linecap="round">
+          <path d="M 15 65 C 20 25, 45 15, 65 22"/>
+          <path d="M 52 14 L 68 22 L 60 38"/>
+        </svg>
+      </div>
+
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">⚡ THE PERSONAL AI OPERATING LAYER</span>
+        </div>
+
+        <div class="fc-hero-title-group">
+          <h1 class="fc-hero-title fc-title-dark squiggly">THINK IT.</h1>
+          <h1 class="fc-hero-title fc-title-white squiggly">SAY IT.</h1>
+          <div class="fc-hero-title-wrap">
+            <h1 class="fc-hero-title fc-title-accent squiggly">IT'S DONE.</h1>
+            <div class="fc-underline-stroke">
+              <svg viewBox="0 0 200 16" fill="none" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round">
+                <path d="M 5 8 Q 50 3, 100 10 T 195 6"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p class="fc-hero-desc">
+          Your phone shouldn't make you do the manual work. Esper turns raw human thoughts into orchestrated, automated multi-step reality.
+        </p>
+
+        <div class="fc-prompt-box pop-card">
+          <div class="fc-prompt-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#F2A6B8">
+              <path d="M13 2L4 14H12L11 22L20 10H12L13 2Z"/>
+            </svg>
+          </div>
+          <input type="text" id="heroPromptInput" value="Plan my weekend and keep it under ₹10,000." placeholder="Speak or type any outcome...">
+          <button id="heroRunBtn" class="pop-btn pop-btn-coral">
+            <span id="heroRunText">RUN ESPER</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+              <line x1="22" y1="2" x2="11" y2="13"/>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="fc-presets-row">
+          <button class="fc-preset-pill active" data-text="Plan my weekend and keep it under ₹10,000.">"Plan weekend under ₹10,000"</button>
+          <button class="fc-preset-pill" data-text="Book quiet cafe nearby, check table opening, & text Sarah.">"Book cafe & text Sarah"</button>
+          <button class="fc-preset-pill" data-text="Monitor flight AI-302, auto-rebook cab if delayed.">"Monitor flight & rebook cab"</button>
+        </div>
+
+        <div class="fc-hero-stage">
+          <div class="fc-mascot-container" id="heroMascotBox">
+            
+            <svg id="mascotSvg" class="fc-mascot-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="100" cy="182" rx="65" ry="12" fill="#1A1A1A" opacity="0.2"/>
+              <path id="mascotBody" d="M 50 80 C 50 35, 150 35, 150 80 C 150 145, 140 170, 100 170 C 60 170, 50 145, 50 80 Z" fill="#F6D76A" stroke="#1A1A1A" stroke-width="6" stroke-linejoin="round"/>
+              <path d="M 70 115 C 70 95, 130 95, 130 115 C 130 148, 120 158, 100 158 C 80 158, 70 148, 70 115 Z" fill="#FAF8F3" opacity="0.9" stroke="#1A1A1A" stroke-width="3"/>
+              
+              <circle cx="68" cy="115" r="9" fill="#F2A6B8" opacity="0.7"/>
+              <circle cx="132" cy="115" r="9" fill="#F2A6B8" opacity="0.7"/>
+              
+              <g id="mascotEyes">
+                <circle id="eyeL" cx="80" cy="95" r="11" fill="#1A1A1A"/>
+                <circle id="eyeR" cx="120" cy="95" r="11" fill="#1A1A1A"/>
+                <circle id="eyeRefL" cx="76" cy="91" r="4" fill="#FAF8F3"/>
+                <circle id="eyeRefR" cx="116" cy="91" r="4" fill="#FAF8F3"/>
+              </g>
+              
+              <path id="mascotMouth" d="M 82 120 Q 100 136 118 120" stroke="#1A1A1A" stroke-width="5" stroke-linecap="round" fill="none"/>
+              
+              <g id="mascotAntenna">
+                <path d="M 100 35 Q 106 24 100 16" stroke="#1A1A1A" stroke-width="4" stroke-linecap="round" fill="none"/>
+                <circle cx="100" cy="12" r="7" fill="#F2A6B8" stroke="#1A1A1A" stroke-width="3"/>
+                <circle cx="98" cy="10" r="2" fill="#FAF8F3"/>
+              </g>
+            </svg>
+          </div>
+
+          <div class="fc-chaos-group" id="heroChaosGroup">
+            <div class="fc-chaos-card pop-card chaos-c1">
+              <span>💳 Max Budget: ₹10,000</span>
+            </div>
+            <div class="fc-chaos-card pop-card chaos-c2">
+              <span>📍 Rooftop Table Reserved</span>
+            </div>
+            <div class="fc-chaos-card pop-card chaos-c3">
+              <span>⏰ Sat 7:30 PM Free Window</span>
+            </div>
+            <div class="fc-chaos-card pop-card chaos-c4">
+              <span>🚗 Uber Pick-up Synced</span>
+            </div>
+          </div>
+
+          <div class="fc-outcome-card pop-card hidden" id="heroOutcomeCard">
+            <div class="fc-outcome-top">
+              <span class="fc-badge badge-mint">✓ OUTCOME COMPLETE</span>
+              <span class="font-doodle outcome-saved">Saved ₹1,550!</span>
+            </div>
+            <h3 class="fc-outcome-h font-display">Weekend Plan Locked & Ready 🚀</h3>
+            <div class="fc-outcome-steps">
+              <div class="outcome-step-line"><span class="check-pill">✓</span> Table reserved at Sky Lounge (Sat, 7:30 PM)</div>
+              <div class="outcome-step-line"><span class="check-pill">✓</span> Cab pre-booked for pickup at 6:45 PM</div>
+              <div class="outcome-step-line"><span class="check-pill">✓</span> Calendar invite & directions texted to Sarah</div>
+            </div>
+            <div class="fc-outcome-btns">
+              <button class="pop-btn pop-btn-yellow open-modal-btn">GET NOW</button>
+              <button id="heroResetBtn" class="pop-btn-subtle">Try Another</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="workflow" class="fc-section fc-workflow-section">
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">SCENE 01 — AUTONOMOUS WORKFLOW</span>
+        </div>
+
+        <div class="fc-section-header">
+          <h2 class="fc-scene-title fc-title-dark squiggly">UNDERSTAND.</h2>
+          <h2 class="fc-scene-title fc-title-white squiggly">PLAN.</h2>
+          <h2 class="fc-scene-title fc-title-dark squiggly">DO.</h2>
+        </div>
+
+        <p class="fc-workflow-sub font-doodle">
+          “Speak naturally. Esper understands the outcome, creates a plan, executes approved actions, and keeps going.”
+        </p>
+
+        <div class="fc-pipeline-stage pop-card">
+          <div class="fc-pipeline-header">
+            <span class="fc-pipeline-title font-display">RAW INTENT TRANSFORMATION</span>
+            <div class="fc-pipeline-step-indicator" id="pipelineStepText">STAGE: NATURAL INTENT PARSING</div>
+          </div>
+
+          <div class="fc-intent-notebook pop-card">
+            <p class="fc-intent-phrase font-doodle">
+              "
+              <span class="fc-token-highlight token-loc active" data-stage="0">Find a quiet table nearby</span>, 
+              <span class="fc-token-highlight token-time" data-stage="1">for 2 around 5:00 PM</span>, 
+              <span class="fc-token-highlight token-plan" data-stage="2">compare ratings & book</span>, and 
+              <span class="fc-token-highlight token-do" data-stage="3">message Sarah the directions</span>
+              ."
+            </p>
+          </div>
+
+          <div class="fc-pipeline-nodes" id="pipelineNodes">
+            <div class="fc-stage-node pop-card active" data-stage="0">
+              <div class="node-num">01</div>
+              <div class="node-emoji">🧠</div>
+              <h4 class="node-title font-display">UNDERSTAND</h4>
+              <p class="node-desc">Extracts parameters & intent without rigid syntax.</p>
+            </div>
+
+            <div class="fc-stage-arrow">➔</div>
+
+            <div class="fc-stage-node pop-card" data-stage="1">
+              <div class="node-num">02</div>
+              <div class="node-emoji">🗺️</div>
+              <h4 class="node-title font-display">PLAN</h4>
+              <p class="node-desc">Generates step-by-step dependency graph.</p>
+            </div>
+
+            <div class="fc-stage-arrow">➔</div>
+
+            <div class="fc-stage-node pop-card" data-stage="2">
+              <div class="node-num">03</div>
+              <div class="node-emoji">⚡</div>
+              <h4 class="node-title font-display">EXECUTE</h4>
+              <p class="node-desc">Dispatches actions across apps simultaneously.</p>
+            </div>
+
+            <div class="fc-stage-arrow">➔</div>
+
+            <div class="fc-stage-node pop-card" data-stage="3">
+              <div class="node-num">04</div>
+              <div class="node-emoji">📡</div>
+              <h4 class="node-title font-display">MONITOR</h4>
+              <p class="node-desc">Tracks real-world delays & flight gates.</p>
+            </div>
+
+            <div class="fc-stage-arrow">➔</div>
+
+            <div class="fc-stage-node pop-card" data-stage="4">
+              <div class="node-num">05</div>
+              <div class="node-emoji">🔄</div>
+              <h4 class="node-title font-display">ADAPT</h4>
+              <p class="node-desc">Auto-heals downstream bookings instantly.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="layers" class="fc-section fc-layers-section">
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">SCENE 02 — LAYER IT UP</span>
+        </div>
+
+        <div class="fc-section-header">
+          <h2 class="fc-scene-title fc-title-dark squiggly">ACROSS</h2>
+          <h2 class="fc-scene-title fc-title-white squiggly">YOUR PHONE.</h2>
+        </div>
+
+        <p class="fc-workflow-sub font-doodle">
+          Esper orchestrates seamlessly across Calendar, Maps, Messages, Notes, Music, Travel, & Payments in one cohesive rhythm.
+        </p>
+
+        <div class="fc-layers-stage pop-card">
+          <div class="fc-layers-grid">
+
+            <div class="fc-apps-palette">
+              <div class="fc-palette-header font-display">CONNECTED MESH</div>
+              
+              <button class="fc-app-btn active" data-app="calendar">
+                <span class="app-btn-icon bg-butter">📅</span>
+                <div class="app-btn-text">
+                  <div class="app-name">Calendar</div>
+                  <div class="app-action">Blocks focus & table times</div>
+                </div>
+              </button>
+
+              <button class="fc-app-btn" data-app="maps">
+                <span class="app-btn-icon bg-sky">🗺️</span>
+                <div class="app-btn-text">
+                  <div class="app-name">Maps & Transit</div>
+                  <div class="app-action">Calculates ETA & traffic</div>
+                </div>
+              </button>
+
+              <button class="fc-app-btn" data-app="messages">
+                <span class="app-btn-icon bg-coral">💬</span>
+                <div class="app-btn-text">
+                  <div class="app-name">Messages</div>
+                  <div class="app-action">Syncs friends & invites</div>
+                </div>
+              </button>
+
+              <button class="fc-app-btn" data-app="payments">
+                <span class="app-btn-icon bg-mint">💳</span>
+                <div class="app-btn-text">
+                  <div class="app-name">Wallet & Passes</div>
+                  <div class="app-action">Applies coupons & saves pass</div>
+                </div>
+              </button>
+
+              <button class="fc-app-btn" data-app="travel">
+                <span class="app-btn-icon bg-lavender">✈️</span>
+                <div class="app-btn-text">
+                  <div class="app-name">Travel & Cabs</div>
+                  <div class="app-action">Dispatches rides on schedule</div>
+                </div>
+              </button>
+            </div>
+
+            <div class="fc-device-viewport pop-card">
+              <div class="fc-viewport-inner" id="layersAppScreen">
+                
+                <div class="fc-app-card pop-card bg-cream">
+                  <div class="app-screen-header">
+                    <span>📅 Apple / Google Calendar</span>
+                    <span class="badge-pill bg-mint">● Free Window</span>
+                  </div>
+                  <div class="app-screen-body">
+                    <h4 class="font-display">Dinner Reservation: 5:00 PM – 6:30 PM</h4>
+                    <p>Reserved 90-minute table at Artisan Lounge. Focus mode enabled.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sentinel" class="fc-section fc-sentinel-section">
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">SCENE 03 — 24/7 SENTINEL</span>
+        </div>
+
+        <div class="fc-section-header">
+          <h2 class="fc-scene-title fc-title-dark squiggly">24/7</h2>
+          <h2 class="fc-scene-title fc-title-accent squiggly">SENTINEL.</h2>
+        </div>
+
+        <p class="fc-workflow-sub font-doodle">
+          “Esper keeps an eye on what matters. Flight delayed. Traffic changed. Weather turned. It adapts the plan before you need to.”
+        </p>
+
+        <div class="fc-sentinel-stage pop-card">
+          <div class="fc-sentinel-controls">
+            <div class="sentinel-status-radar">
+              <span class="radar-ping"></span>
+              <span class="font-display">SENTINEL STATUS: WATCHING CONDITIONS</span>
+            </div>
+            <button id="triggerDisruptionBtn" class="pop-btn pop-btn-yellow btn-sm">
+              ⚡ SIMULATE DISRUPTION
+            </button>
+          </div>
+
+          <div class="fc-sentinel-monitor-grid">
+            <div class="sentinel-monitor-item pop-card bg-cream">
+              <span class="monitor-tag">SIMULATED TIME</span>
+              <div class="monitor-time-val font-display" id="sentinelTimeVal">04:15 PM</div>
+            </div>
+            <div class="sentinel-monitor-item pop-card bg-cream">
+              <span class="monitor-tag">WEATHER RADAR</span>
+              <div class="monitor-weather-val font-display" id="sentinelWeatherVal">Sunny (28°C)</div>
+            </div>
+            <div class="sentinel-monitor-item pop-card bg-cream">
+              <span class="monitor-tag">TRANSIT & ETA</span>
+              <div class="monitor-traffic-val font-display" id="sentinelTransitVal">Normal (14m ETA)</div>
+            </div>
+          </div>
+
+          <div class="fc-sentinel-nodes-grid" id="sentinelNodesGrid">
+            <div class="sentinel-plan-node pop-card bg-butter" id="sNode1">
+              <div class="node-tag">STEP 01</div>
+              <div class="node-h font-display">🚂 Express Train Departure</div>
+              <p class="node-p">Scheduled for 4:30 PM platform 4.</p>
+            </div>
+
+            <div class="sentinel-plan-node pop-card bg-sky" id="sNode2">
+              <div class="node-tag">STEP 02</div>
+              <div class="node-h font-display">🏞️ Rooftop Cafe Table</div>
+              <p class="node-p">Terrace seating reserved at 5:00 PM.</p>
+            </div>
+
+            <div class="sentinel-plan-node pop-card bg-lavender" id="sNode3">
+              <div class="node-tag">STEP 03</div>
+              <div class="node-h font-display">📱 Sarah Notified</div>
+              <p class="node-p">Meeting at the outdoor garden.</p>
+            </div>
+          </div>
+
+          <div id="sentinelHealedBanner" class="sentinel-healed-card pop-card bg-mint hidden">
+            <span class="check-circle-lg">✓</span>
+            <div class="text-left">
+              <h4 class="font-display">PLAN AUTO-HEALED IN 0.8s</h4>
+              <p>Rain warning detected & transit delayed. Re-booked indoor lounge & dispatched cab early to preserve dinner window.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="security" class="fc-section fc-security-section">
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">SCENE 04 — HARDWARE VAULT</span>
+        </div>
+
+        <div class="fc-section-header">
+          <h2 class="fc-scene-title fc-title-dark squiggly">ON-DEVICE</h2>
+          <h2 class="fc-scene-title fc-title-white squiggly">SECURITY.</h2>
+        </div>
+
+        <p class="fc-workflow-sub font-doodle">
+          Your private life stays on your hardware. Local neural processing ensures zero cloud telemetry, zero prompt leakage, and 100% control.
+        </p>
+
+        <div class="fc-security-grid">
+          <div class="fc-security-card pop-card bg-cream" data-sec="1">
+            <div class="sec-top">
+              <span class="sec-icon">💻</span>
+              <span class="sec-title font-display">ON-DEVICE NEURAL SANDBOX</span>
+              <div class="sec-toggle active"></div>
+            </div>
+            <p class="sec-desc">Goal planning & app routing execute strictly within your smartphone's secure enclave.</p>
+          </div>
+
+          <div class="fc-security-card pop-card bg-cream" data-sec="2">
+            <div class="sec-top">
+              <span class="sec-icon">🔒</span>
+              <span class="sec-title font-display">BIOMETRIC APPROVAL GATE</span>
+              <div class="sec-toggle active"></div>
+            </div>
+            <p class="sec-desc">Payments, calendar invites, or sensitive messages require 1-tap explicit biometric consent.</p>
+          </div>
+
+          <div class="fc-security-card pop-card bg-cream" data-sec="3">
+            <div class="sec-top">
+              <span class="sec-icon">🚫</span>
+              <span class="sec-title font-display">ZERO TRAINING ON YOUR DATA</span>
+              <div class="sec-toggle active"></div>
+            </div>
+            <p class="sec-desc">Your personal life is never stored, rented, or fed into public commercial LLM datasets.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="fc-section fc-features-section">
+      <div class="fc-container text-center">
+        <div class="fc-badge-wrapper">
+          <span class="fc-badge pop-card">SCENE 05 — NEXT-GEN OS FEATURES</span>
+        </div>
+
+        <div class="fc-section-header">
+          <h2 class="fc-scene-title fc-title-dark squiggly">BUILT FOR</h2>
+          <h2 class="fc-scene-title fc-title-accent squiggly">WHAT'S NEXT.</h2>
+        </div>
+
+        <div class="fc-features-carousel pop-card">
+          <div class="fc-carousel-tabs">
+            <button class="fc-carousel-tab active" data-f="0">Natural Parsing</button>
+            <button class="fc-carousel-tab" data-f="1">DAG Planner</button>
+            <button class="fc-carousel-tab" data-f="2">Dispatch Mesh</button>
+            <button class="fc-carousel-tab" data-f="3">Self-Healing</button>
+            <button class="fc-carousel-tab" data-f="4">Hardware Enclave</button>
+          </div>
+
+          <div class="fc-carousel-display" id="featureDisplayBox">
+            <div class="fc-feature-card-inner">
+              <span class="fc-feature-badge pop-card bg-butter">CORE FEATURE 01</span>
+              <h3 class="fc-feature-heading font-display">Natural Intent Parsing</h3>
+              <p class="fc-feature-body">Understands unstructured, messy human voice and extracts exact parameters with zero hallucinations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="footer-cta" class="fc-section fc-final-section">
+      <div class="fc-container text-center">
+        <div class="fc-final-title-group">
+          <h2 class="fc-hero-title fc-title-dark squiggly">THINK IT.</h2>
+          <h2 class="fc-hero-title fc-title-white squiggly">SAY IT.</h2>
+          <h2 class="fc-hero-title fc-title-accent squiggly">IT'S DONE.</h2>
+        </div>
+
+        <p class="fc-workflow-sub font-doodle">
+          Stop wasting hours tapping across 10 apps. Let Esper handle the workflow.
+        </p>
+
+        <div class="fc-cta-action-row">
+          <button class="pop-btn pop-btn-ink fc-btn-hero open-modal-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="#F6D76A"><path d="M13 2L4 14H12L11 22L20 10H12L13 2Z"/></svg>
+            GET ESPER NOW
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F6D76A" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+
+        <div class="fc-footer-divider"></div>
+
+        <div class="fc-social-section">
+          <div class="fc-social-heading font-display squiggly">SAY HI.</div>
+          
+          <div class="fc-social-links-row" id="socialsRow">
+            <a href="https://www.instagram.com/developersatyam/" target="_blank" rel="noopener noreferrer" class="fc-typo-social-link">
+              <span>My Instagram</span>
+              <span class="social-arrow">→</span>
+            </a>
+            <a href="https://www.linkedin.com/in/satyamofficial/" target="_blank" rel="noopener noreferrer" class="fc-typo-social-link">
+              <span>My LinkedIn</span>
+              <span class="social-arrow">→</span>
+            </a>
+            <a href="https://github.com/devSatyamm" target="_blank" rel="noopener noreferrer" class="fc-typo-social-link">
+              <span>My GitHub</span>
+              <span class="social-arrow">→</span>
+            </a>
+            <a href="https://www.instagram.com/esper.labs/" target="_blank" rel="noopener noreferrer" class="fc-typo-social-link">
+              <span>Esper Labs</span>
+              <span class="social-arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="fc-footer-bottom font-display">
+          © 2026 ESPER LABS &nbsp;·&nbsp; BUILT FOR WHAT'S NEXT &nbsp;·&nbsp; PRIVACY-FIRST
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="esperOfflineOverlay" class="fc-offline-overlay hidden">
+    <div class="fc-offline-container">
+
+      <div class="fc-offline-topbar">
+        <div class="fc-offline-badge pop-card bg-butter">
+          <span class="offline-pulse-dot"></span>
+          <span class="font-display">ON-DEVICE NEURAL PROCESSING · ACTIVE</span>
+        </div>
+        <button id="closeOfflineViewBtn" class="fc-offline-close-btn pop-card" title="Minimize Offline View">
+          <span>MINIMIZE VIEW ✕</span>
+        </button>
+      </div>
+
+      <div class="fc-offline-hero text-center">
+        
+        <div class="fc-offline-mascot-box">
+          <img src="favicon.svg" alt="Esper Mascot" class="fc-offline-mascot-img">
+          <div class="mascot-calm-orbit"></div>
+        </div>
+
+        <div class="fc-offline-titles">
+          <h2 class="fc-hero-title fc-title-dark squiggly">NO NETWORK?</h2>
+          <h2 class="fc-hero-title fc-title-white squiggly">NO PROBLEM.</h2>
+          <div class="fc-hero-title-wrap">
+            <h2 class="fc-hero-title fc-title-accent squiggly">ESPER IS STILL WITH YOU.</h2>
+          </div>
+        </div>
+
+        <p class="fc-offline-sub">
+          The internet disappeared, but Esper hasn't. Your personal on-device neural operating layer is fully active. Write thoughts, choreograph plans, and queue online actions.
+        </p>
+      </div>
+
+      <div class="fc-offline-hub-card pop-card bg-cream">
+        <div class="fc-hub-header text-center">
+          <h3 class="fc-hub-title font-display squiggly">STILL GOT THINGS TO DO?</h3>
+          <p class="fc-hub-subtitle font-doodle">What do you want to do?</p>
+        </div>
+
+        <div class="fc-offline-actions-grid">
+          <button class="fc-offline-action-btn pop-card bg-butter" data-action="tell">
+            <div class="action-btn-icon">💬</div>
+            <div class="action-btn-content">
+              <span class="action-btn-title font-display">TELL ESPER</span>
+              <span class="action-btn-desc">Ask or request anything on-device</span>
+            </div>
+            <span class="action-btn-arrow font-display">→</span>
+          </button>
+
+          <button class="fc-offline-action-btn pop-card bg-coral" data-action="thought">
+            <div class="action-btn-icon">💡</div>
+            <div class="action-btn-content">
+              <span class="action-btn-title font-display">SAVE A THOUGHT</span>
+              <span class="action-btn-desc">Unload your mind with auto-save</span>
+            </div>
+            <span class="action-btn-arrow font-display">→</span>
+          </button>
+
+          <button class="fc-offline-action-btn pop-card bg-sky" data-action="plan">
+            <div class="action-btn-icon">🗺️</div>
+            <div class="action-btn-content">
+              <span class="action-btn-title font-display">MAKE A PLAN</span>
+              <span class="action-btn-desc">Step-by-step local DAG planner</span>
+            </div>
+            <span class="action-btn-arrow font-display">→</span>
+          </button>
+
+          <button class="fc-offline-action-btn pop-card bg-mint" data-action="reminder">
+            <div class="action-btn-icon">⏰</div>
+            <div class="action-btn-content">
+              <span class="action-btn-title font-display">SET A REMINDER</span>
+              <span class="action-btn-desc">Honest local device alerts</span>
+            </div>
+            <span class="action-btn-arrow font-display">→</span>
+          </button>
+
+          <button class="fc-offline-action-btn pop-card bg-lavender" data-action="saved">
+            <div class="action-btn-icon">📦</div>
+            <div class="action-btn-content">
+              <span class="action-btn-title font-display">SEE MY SAVED THINGS</span>
+              <span class="action-btn-desc">Thoughts, plans & goal queue (<span id="savedCountBadge">0</span>)</span>
+            </div>
+            <span class="action-btn-arrow font-display">→</span>
+          </button>
+        </div>
+
+        <div id="offlineActionPanels" class="fc-offline-panels">
+
+          <div id="panelTell" class="fc-offline-panel pop-card bg-offwhite hidden">
+            <div class="panel-top">
+              <span class="fc-badge pop-card bg-butter">💬 TELL ESPER</span>
+              <button class="panel-close-btn" data-close="tell">✕</button>
+            </div>
+            <div class="panel-mascot-dialogue">
+              <span class="dialogue-mascot font-display">ESPER:</span>
+              <p id="tellMascotResponse" class="dialogue-bubble font-doodle">"I'm listening. Tell me what you'd like to do."</p>
+            </div>
+            <div class="panel-input-row">
+              <input type="text" id="tellInput" placeholder="e.g. Find cheapest flight to Delhi OR Outline my essay" class="pop-card">
+              <button id="tellSubmitBtn" class="pop-btn pop-btn-ink">ASK</button>
+            </div>
+            <div class="panel-quick-samples">
+              <span class="samples-tag font-display">Quick ideas:</span>
+              <button class="sample-chip" data-val="Find cheapest flight to Delhi">"Find flight to Delhi" (Queues for online)</button>
+              <button class="sample-chip" data-val="Break down steps to finish presentation">"Plan presentation" (Local on-device)</button>
+              <button class="sample-chip" data-val="Send email update to team">"Send email to team" (Queues for online)</button>
+            </div>
+          </div>
+
+          <div id="panelThought" class="fc-offline-panel pop-card bg-offwhite hidden">
+            <div class="panel-top">
+              <span class="fc-badge pop-card bg-coral">💡 OFFLINE BRAIN DUMP</span>
+              <span id="thoughtAutoSaveIndicator" class="auto-save-tag">✓ Kept safe on device</span>
+              <button class="panel-close-btn" data-close="thought">✕</button>
+            </div>
+            <h4 class="font-display brain-dump-h">WHAT'S ON YOUR MIND?</h4>
+            <p class="brain-dump-sub">Write anything. It saves automatically as you type and persists across page reloads.</p>
+            <textarea id="brainDumpTextarea" class="fc-braindump-input pop-card" placeholder="Need to finish my project, submit the assignment tomorrow, call my friend, and plan the weekend..."></textarea>
+            <div class="panel-footer-row">
+              <span id="brainDumpStats" class="font-doodle">0 words · 0 characters</span>
+              <button id="saveThoughtBtn" class="pop-btn pop-btn-coral btn-sm">SAVE AS NEW THOUGHT</button>
+            </div>
+          </div>
+
+          <div id="panelPlan" class="fc-offline-panel pop-card bg-offwhite hidden">
+            <div class="panel-top">
+              <span class="fc-badge pop-card bg-sky">🗺️ OFFLINE STEP PLANNER</span>
+              <button class="panel-close-btn" data-close="plan">✕</button>
+            </div>
+            <h4 class="font-display brain-dump-h">WHAT'S THE GOAL?</h4>
+            <div class="panel-input-row">
+              <input type="text" id="planGoalInput" placeholder="e.g. Clean workspace & study for test" class="pop-card">
+              <button id="generatePlanBtn" class="pop-btn pop-btn-ink">CHOREOGRAPH</button>
+            </div>
+            <div id="planGeneratedSteps" class="plan-steps-container hidden">
+              
+            </div>
+          </div>
+
+          <div id="panelReminder" class="fc-offline-panel pop-card bg-offwhite hidden">
+            <div class="panel-top">
+              <span class="fc-badge pop-card bg-mint">⏰ LOCAL REMINDER</span>
+              <button class="panel-close-btn" data-close="reminder">✕</button>
+            </div>
+            <h4 class="font-display brain-dump-h">WHAT SHOULD I REMIND YOU ABOUT?</h4>
+            <div class="reminder-form">
+              <input type="text" id="reminderTextInput" placeholder="e.g. Submit assignment at 9 AM" class="pop-card mb-2">
+              <div class="reminder-time-options">
+                <button class="reminder-preset-btn active" data-mins="5">In 5 mins</button>
+                <button class="reminder-preset-btn" data-mins="30">In 30 mins</button>
+                <button class="reminder-preset-btn" data-mins="60">In 1 hour</button>
+                <button class="reminder-preset-btn" data-mins="720">Tomorrow Morning</button>
+              </div>
+              <button id="setReminderBtn" class="pop-btn pop-btn-yellow w-100 mt-3">SET LOCAL REMINDER</button>
+              <div class="reminder-honest-note">
+                ℹ️ <strong>Honest note:</strong> Reminders run via local browser timers & alerts. They will sound while this PWA/tab is open.
+              </div>
+            </div>
+          </div>
+
+          <div id="panelSaved" class="fc-offline-panel pop-card bg-offwhite hidden">
+            <div class="panel-top">
+              <span class="fc-badge pop-card bg-lavender">📦 READY WHEN YOU ARE</span>
+              <button class="panel-close-btn" data-close="saved">✕</button>
+            </div>
+            
+            <div class="saved-tabs-row">
+              <button class="saved-tab-btn active" data-filter="all">All (<span id="tabCountAll">0</span>)</button>
+              <button class="saved-tab-btn" data-filter="queued">Queued Online (<span id="tabCountQueued">0</span>)</button>
+              <button class="saved-tab-btn" data-filter="thoughts">Thoughts (<span id="tabCountThoughts">0</span>)</button>
+              <button class="saved-tab-btn" data-filter="plans">Plans (<span id="tabCountPlans">0</span>)</button>
+              <button class="saved-tab-btn" data-filter="reminders">Reminders (<span id="tabCountReminders">0</span>)</button>
+            </div>
+
+            <div class="queue-permission-box pop-card bg-cream mb-3">
+              <label class="queue-permission-label">
+                <input type="checkbox" id="askBeforeContinuingToggle" checked>
+                <span><strong>Ask for permission</strong> before executing queued online requests when internet reconnects</span>
+              </label>
+            </div>
+
+            <div id="savedItemsList" class="saved-items-list">
+              
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="esperOnlineRestoredOverlay" class="fc-modal-overlay hidden">
+    <div class="fc-modal-card pop-card bg-cream">
+      <button id="closeRestoredBtn" class="fc-modal-close" aria-label="Close">✕</button>
+
+      <div class="mb-3">
+        <span class="fc-badge pop-card bg-mint">🌐 NETWORK RESTORED</span>
+      </div>
+      
+      <h3 class="fc-modal-h font-display squiggly">WELCOME BACK.</h3>
+      
+      <p class="fc-modal-p">
+        While you were offline, I kept your thoughts safe and held onto your requests.
+      </p>
+
+      <div id="restoredQueueNotice" class="fc-waitlist-stats pop-card bg-offwhite mb-3">
+        <span class="waitlist-flame">⚡</span>
+        <div class="text-left">
+          <div class="waitlist-count-num font-display" id="restoredQueueCount">0</div>
+          <div class="waitlist-count-label">Actions ready to continue</div>
+        </div>
+      </div>
+
+      <div id="restoredActionsSummary" class="restored-summary-list mb-3">
+        
+      </div>
+
+      <div class="fc-restored-btns">
+        <button id="reviewRestoredBtn" class="pop-btn pop-btn-yellow w-100 mb-2">
+          REVIEW & APPROVE ACTIONS ➔
+        </button>
+        <button id="dismissRestoredBtn" class="pop-btn-subtle w-100">
+          KEEP SAVED FOR LATER
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="earlyAccessModal" class="fc-modal-overlay hidden">
+    <canvas id="confettiCanvas" class="fc-confetti-canvas"></canvas>
+    
+    <div class="fc-modal-card pop-card bg-cream">
+      <button id="closeModalBtn" class="fc-modal-close" aria-label="Close modal">✕</button>
+
+      <div id="modalFormView">
+        <div class="mb-3">
+          <span class="fc-badge pop-card bg-butter">⚙️ CURRENTLY FINE-TUNING</span>
+        </div>
+        <h3 class="fc-modal-h font-display squiggly">ESPER IS CURRENTLY FINE-TUNING</h3>
+        
+        <p class="fc-modal-p">
+          We're currently fine-tuning Esper's personal on-device models for peak performance and battery life.<br>
+          <strong>Do you want it as soon as it's ready?</strong>
+        </p>
+
+        <div class="fc-waitlist-stats pop-card bg-offwhite">
+          <span class="waitlist-flame">🔥</span>
+          <div class="text-left">
+            <div class="waitlist-count-num font-display" id="waitlistCountDisplay">0</div>
+            <div class="waitlist-count-label">People requested Esper so far</div>
+          </div>
+        </div>
+
+        <button id="claimEarlyAccessBtn" class="pop-btn pop-btn-coral fc-btn-claim w-100">
+          <span>⚡ YES, I WANT IT!</span>
+          <span class="claim-arrow">→</span>
+        </button>
+
+        <div class="fc-privacy-note">
+          🔒 100% Anonymous · No signup or email needed · Instant reservation
+        </div>
+      </div>
+
+      <div id="modalSuccessView" class="hidden">
+        <div class="fc-success-badge">✓</div>
+        <h3 class="fc-modal-h font-display squiggly">YOU'RE IN LINE!</h3>
+        
+        <div class="fc-vip-ticket pop-card bg-butter">
+          <div class="ticket-meta">
+            <span class="ticket-tag font-display">SPOT RESERVED</span>
+            <span class="ticket-status font-display">STATUS: CONFIRMED</span>
+            <span id="ticketPassId" class="ticket-email font-doodle">Spot #1 in Line</span>
+          </div>
+          <span id="ticketNumber" class="ticket-no font-display">#1</span>
+        </div>
+
+        <p class="fc-modal-p">Spot confirmed! We're fine-tuning Esper right now and will roll it out the second it's ready.</p>
+        <button id="modalDoneBtn" class="pop-btn pop-btn-ink w-100">DONE</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="script.js"></script>
+</body>
+</html>
